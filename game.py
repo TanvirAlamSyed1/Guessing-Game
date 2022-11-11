@@ -14,29 +14,29 @@ def guess(): #this will allow the user to guess the computers number
     print("Congratulation, you guessed the number")
 
 
-def computer_guess(x):
-    low = 0
-    high = 100
+def computer_guess(x): #takes in users num
+    low = 0 # min number 
+    high = 100 # max number
     feedback = ''
-    while feedback != 'c':
+    while feedback != 'c': #whilst computer hasn't guessed correctly
         if low != high:
-            guess_num = random.randint(low, high)
-        else:
-            guess_num = low
-        feedback = input(f'Is {guess_num} too high (H), too low (L) or correct (C)???').lower()
+            guess_num = random.randint(low, high)# guesses a number between min and max
+        feedback = input(f'Is {guess_num} too high (H), too low (L) or correct (C)???').lower()#asks user if the number i guessed number their number
         if feedback == 'h':
-            high = guess_num - 1
+            high = guess_num - 1#takes away so that it doesn't guess any number higher than that
         elif feedback == 'l':
-            low = guess_num + 1
+            low = guess_num + 1#adds so that it doesn't guess any number lower than that
+        else:
+            print("wrong input")
     print(f"We guessed your number, {guess_num}, correct!!!!")
 
 def main():
     end = False
     while end != True:
-        print("For the computer to guess your number, enter 1")
+        print("For the computer to guess your number, enter 1")#prints options out
         print("For you to guess the computer's number, enter 2")
         print("For the game to end, enter 3")
-        game = str(input("Please Enter your option: "))
+        game = str(input("Please Enter your option: "))#takes in user input
         if game == '1':
             number = int(input("please enter a number between 1-100: "))
             computer_guess(number)
